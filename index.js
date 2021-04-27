@@ -1,5 +1,4 @@
 const { port } = require('./config/cfg.json')
-const fds = 'fs'
 const express = require('express')
 const app = express()
 const google = require("./routes/google.js");
