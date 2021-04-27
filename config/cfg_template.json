@@ -1,0 +1,5 @@
+{
+    "auth": "", // API AUTH
+    "url": "", // API URL
+    "port": "" // API PORT
+}
