@@ -25,14 +25,18 @@ router.get('/polly', async function (req, res) {
             }
         })
 
-        const data = await got(JSON.parse(body).speak_url, { retryCount }).buffer()
+        const json = JSON.parse(body)
 
-        send(data, res, req, Boolean(req.query.direct))
-        logger.info(`Received Polly for ${phrase}`);
+        if (req.query.directLink) return res.send({ url: json.speak_url })
+
+        const data = await got(json.speak_url, { retryCount }).buffer()
+
+        send(data, res, req, req.query.direct)
     } catch (err) {
         res.status(500).send({ error: { message: `Couldn't get TTS within ${retryCount} retries` } })
         console.error(err)
     }
+    logger.info(`Received Polly for ${phrase}`);
 });
 
 module.exports = router;
