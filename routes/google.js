@@ -20,12 +20,12 @@ router.get('/google', async function (req, res) {
     try {
         const data = await got(`https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(phrase)}&tl=${encodeURIComponent(lang)}&total=1&idx=0&textlen=${phrase.length}&client=tw-ob&prev=input&ttsspeed=${encodeURIComponent(speed)}`, { retryCount }).buffer()
 
-        send(data, res, req, Boolean(req.query.direct))
-        logger.info(`Received Google for ${phrase}`);
+        send(data, res, req, req.query.direct)
     } catch (err) {
         res.status(500).send({ error: { message: `Couldn't get TTS within ${retryCount} retries` } })
         console.error(err)
     }
+    logger.info(`Received Google for ${phrase}`);
 });
 
 module.exports = router;
