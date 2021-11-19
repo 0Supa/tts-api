@@ -1,7 +1,8 @@
 const { send } = require('../util/utils.js')
 const { auth } = require('../config/cfg.json')
-const logger = require('../util/winston.js');
+const logger = require('../util/winston.js')
 const uberduck = require('../util/uberduck.js')
+const got = require('got')
 
 const express = require("express");
 const router = express.Router();
@@ -18,6 +19,8 @@ router.get('/uberduck', async function (req, res) {
     try {
         const uuid = await uberduck.queue(voice, phrase)
         const res = await uberduck.getResult(uuid)
+        const data = await got(res.path).buffer()
+
         send(data, res, req, req.query.direct)
     } catch (err) {
         res.status(500).send({ error: { message: err } })
