@@ -18,8 +18,8 @@ router.get('/uberduck', async function (req, res) {
 
     try {
         const uuid = await uberduck.queue(voice, phrase)
-        const res = await uberduck.getResult(uuid)
-        const data = await got(res.path).buffer()
+        const tts = await uberduck.getResult(uuid)
+        const data = await got(tts.path).buffer()
 
         send(data, res, req, req.query.direct)
     } catch (err) {
