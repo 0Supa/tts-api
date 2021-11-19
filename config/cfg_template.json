@@ -1,5 +1,9 @@
 {
-    "auth": "", // API AUTH
-    "url": "", // API URL
-    "port": "" // API PORT
+    "auth": "API AUTH",
+    "url": "API URL",
+    "port": "API PORT",
+    "uberduck": {
+        "key": "uberduck.ai api key",
+        "secret": "uberduck.ai api"
+    }
 }
