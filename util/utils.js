@@ -11,7 +11,7 @@ module.exports = {
                 if (err.code === 'EEXIST') return send(data, res, req, direct)
                 console.error(err)
             }
-            if (direct) return res.sendFile(path.resolve(__dirname, 'static', `${fileName}.mp3`))
+            if (direct) return res.sendFile(path.resolve('..', 'static', `${fileName}.mp3`))
             res.send({ url: `${url}/${fileName}` })
         })
     }
