@@ -5,6 +5,7 @@ const google = require("./routes/google.js");
 const polly = require("./routes/polly.js");
 const uberduck = require("./routes/uberduck.js");
 
+app.use(express.json());
 app.use('/tts', [google, polly, uberduck, express.static('./static', { extensions: ['mp3'] })])
 
 app.listen(port, () => {
