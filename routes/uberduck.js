@@ -7,8 +7,6 @@ const got = require('got')
 const express = require("express");
 const router = express.Router();
 
-app.use(express.json());
-
 async function handle(req, res, phrase, voice) {
     if (!req.headers.authorization || req.headers.authorization !== auth) return res.status(401).redirect(`https://youtu.be/d1zzvW2oYjs`)
     if (!voice) return res.status(400).send({ error: { message: "You need to specify a voice" } })
