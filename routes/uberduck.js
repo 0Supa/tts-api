@@ -30,7 +30,7 @@ router.get('/uberduck', async function (req, res) {
     const phrase = req.query.text
     const voice = req.query.lang || req.query.voice
 
-    await handle(res, req, phrase, voice)
+    await handle(req, res, phrase, voice)
 
     logger.info(`Received Uberduck for ${phrase}`);
 });
@@ -39,7 +39,7 @@ router.post('/uberduck', async function (req, res) {
     const phrase = req.body.text
     const voice = req.body.lang || req.body.voice
 
-    await handle(res, req, phrase, voice)
+    await handle(req, res, phrase, voice)
 
     logger.info(`Received Uberduck for ${phrase}`);
 });
