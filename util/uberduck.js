@@ -1,4 +1,4 @@
-const config = require('../config/cfg.json')
+const config = require('../config.json')
 const auth = Buffer.from(`${config.uberduck.key}:${config.uberduck.secret}`).toString('base64')
 const got = require('got')
 

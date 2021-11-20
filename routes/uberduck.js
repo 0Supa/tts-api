@@ -1,5 +1,5 @@
 const { send } = require('../util/utils.js')
-const { auth } = require('../config/cfg.json')
+const { auth } = require('../config.json')
 const logger = require('../util/winston.js')
 const uberduck = require('../util/uberduck.js')
 const got = require('got')

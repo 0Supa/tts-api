@@ -1,4 +1,4 @@
-const { url } = require('../config/cfg.json')
+const { url } = require('../config.json')
 const path = require('path')
 const fs = require('fs')
 

@@ -1,4 +1,4 @@
-const { port } = require('./config/cfg.json')
+const { port } = require('./config.json')
 const express = require('express')
 const app = express()
 const google = require("./routes/google.js");
